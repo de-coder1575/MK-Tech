@@ -7,7 +7,6 @@ from rest_framework.decorators import api_view
 from rest_framework.serializers import Serializer
 from .models import Product, Customer, Order
 from .serializers import *
-#ProductSerializer, CustomerSerializer, OrderSerializer
 from ecomapi import serializers
 from .utils import updateProduct, getProductDetail, deleteProduct, getProductsList, createProduct, updateCustomer,getCustomerDetail,deleteCustomer,getCustomersList,createCustomer,updateOrder,getOrderDetail,getOrdersList,deleteOrder,createOrder
 from rest_framework import generics
@@ -119,18 +118,6 @@ def getRoutes(request):
     ]
     return Response(routes)
 
-
-# /notes GET
-# /notes POST
-# /notes/<id> GET
-# /notes/<id> PUT
-# /notes/<id> DELETE
-
-@api_view(['GET'])
-def getProducts(request):
-
-    if request.method == 'GET':
-        return getProductsList(request)
 
 
 
@@ -302,10 +289,6 @@ def deleteOrder(request, pk):
 class OrderList(generics.ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    
-
-
-
 
 
 #Admin

@@ -84,7 +84,7 @@ def getProducts(request, pk):
 def createProduct(request):
      data = request.data
      product = Product.objects.create(
-         name=data['name']
+         body=data['body']
      )
      serializer = ProductSerializer(product, many=False)
      return Response(serializer.data)

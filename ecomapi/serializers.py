@@ -1,11 +1,13 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from .models import Product, Customer, Order
 
 
 class ProductSerializer(ModelSerializer):
+    
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['name','picture1','picture2', 'stock']
 
 class CustomerSerializer(ModelSerializer):
     class Meta:
@@ -16,4 +18,10 @@ class CustomerSerializer(ModelSerializer):
 class OrderSerializer(ModelSerializer):
     class Meta:
         model = Order
-        fields = '__all__'        
+        fields = ['user','products']        
+
+
+class UpdateOrderSerializer(ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__' 

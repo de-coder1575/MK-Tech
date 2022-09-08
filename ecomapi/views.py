@@ -120,9 +120,16 @@ def getRoutes(request):
 
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getProduct(request, pk):
+
+    if request.method == 'GET':
+        return getProductDetail(request, pk)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAdminUser])
 def getProducts(request, pk):
 
     if request.method == 'GET':

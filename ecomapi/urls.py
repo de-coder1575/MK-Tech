@@ -15,6 +15,7 @@ path('products/<str:pk>/update/', views.updateProduct, name="update-product"),
 path('products/<str:pk>/delete/', views.deleteProduct, name="delete-product"),
 
 path('products/<str:pk>/', views.getProducts, name="product"),
+path('product/<str:pk>/', views.getProduct, name="product"),
 
 
 #Customer URL's
